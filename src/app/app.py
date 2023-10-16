@@ -14,6 +14,9 @@ preprocessor = joblib.load(f"{model_dir}/preprocessor.joblib")
 # Load the model
 model = joblib.load(f"{model_dir}/rf_model.joblib")
 
+# Load the train data
+data = pd.read_csv("src/notebook/data/clean_train.csv")
+
 
 expected_inputs = [
     "gender",
@@ -59,14 +62,18 @@ def churn_predict(*args):
 
 
 # Define some variable limits and lists of options
-max_tenure = (
-    1.61803398875 * 72
-)  # Applied the Golden Ratio to the maximum value from the training data to leave room for increased customer tenures while still ensuring a limit on the possible inputs.
-max_monthly_charges = (
-    1.61803398875 * 200
+
+# Define the Golden Ratio
+constant = 1.61803398875
+
+max_tenure = constant * np.max(
+    data["tenure"]
+)  # Applied the Golden Ratio  to the maximum value from the training data to leave room for increased customer tenures while still ensuring a limit on the possible inputs.
+max_monthly_charges = constant * np.max(
+    data["MonthlyCharges"]
 )  # Applied the Golden Ratio to the maximum amount of monthly charges from the training data to leave room for increased amounts while still ensuring a limit on the possible inputs.
-max_total_charges = (
-    1.61803398875 * 8684.8
+max_total_charges = constant * np.max(
+    data["TotalCharges"]
 )  # Applied the Golden Ratio to the maximum amount of total charges from the training data to leave room for increased amounts while still ensuring a limit on the possible inputs.
 yes_or_no = [
     "Yes",
@@ -80,9 +87,12 @@ internet_service_choices = [
 
 
 # App
-with gr.Blocks() as app:
+with gr.Blocks(
+    theme=gr.themes.Soft(),
+    css="#title {font-size: 50px !important; text-align: center; margin-bottom: 1rem}",
+) as app:
     # Title
-    gr.Markdown("# ChurnPredict Pro")
+    gr.Markdown("# ChurnPredict Pro", elem_id="title")
 
     # About app and Data dictionary
     with gr.Row():
@@ -131,7 +141,7 @@ with gr.Blocks() as app:
 
     with gr.Row():
         with gr.Column():
-            gr.Markdown("**Contract and Tenure Data**")
+            gr.Markdown("**CONTRACT AND TENURE DATA**")
             Contract = gr.Dropdown(
                 label="Contract",
                 choices=["Month-to-month", "One year", "Two year"],
