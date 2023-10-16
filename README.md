@@ -35,7 +35,7 @@ ChurnPredict Pro uses a state-of-the-art Random Forest Classifier model to predi
   |![submit and pred](https://github.com/snyamson/P4-ChurnPredict-Pro/assets/58486437/275209cd-2bb4-4201-82bd-115df186a81d)        | ![pred](https://github.com/snyamson/P4-ChurnPredict-Pro/assets/58486437/b9193492-d28a-47df-9979-6f6d9ca8975f)                 |
 
 - ### Article Link 🌐
-  [Read Article]()
+  [Read Article](https://www.linkedin.com/pulse/churnpredict-pro-customer-churn-prediction-app-gradio-solomon-wolaf)
 
 ## Getting Started 🏁
 
