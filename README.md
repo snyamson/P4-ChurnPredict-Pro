@@ -47,8 +47,8 @@ Follow these instructions to get the app up and running on your local machine.
 1. Clone the repository:
 
    ```bash
-   git clone your_repository_url_here
-   cd ChurnPredictPro
+   git clone https://github.com/snyamson/P4-ChurnPredict-Pro.git
+   cd P4-ChurnPredict-Pro
    ```
 
 2. Create a virtual environment (optional but recommended):
