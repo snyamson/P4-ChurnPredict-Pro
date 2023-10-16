@@ -14,7 +14,6 @@ ChurnPredict Pro is a powerful web application built on top of a Random Forest C
 - [Usage](#usage) 📊
   - [Making Predictions](#making-predictions) 📈
 - [Technologies Used](#technologies-used) 💻🔬
-- [Model Interpretability](#model-interpretability) 🤖📓
 - [Contributing](#contributing) 🤝🙌
 - [License](#license) 📜
 
